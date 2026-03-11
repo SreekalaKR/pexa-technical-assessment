@@ -1,0 +1,36 @@
+<div>
+  <label>Rows per page:</label>
+  <select [(ngModel)]="pageSize" (change)="changePageSize()">
+    <option [value]="5">5</option>
+    <option [value]="10">10</option>
+    <option [value]="20">20</option>
+  </select>
+</div>
+
+<h2>User List</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Avatar</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.first_name }}</td>
+    <td>{{ user.email }}</td>
+    <td>
+      <img [src]="user.avatar" width="50" />
+    </td>
+  </tr>
+</table>
+
+<div class="pagination">
+  <button
+    *ngFor="let page of pages"
+    (click)="changePage(page)"
+    [class.active]="currentPage === page"
+  >
+    {{ page }}
+  </button>
+</div>

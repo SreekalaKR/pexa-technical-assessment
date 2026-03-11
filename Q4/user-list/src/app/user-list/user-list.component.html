@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>User List</h2>
+
+  <ul class="user-list">
+    <li *ngFor="let user of users">
+      {{ user }}
+    </li>
+  </ul>
+
+  <div class="button-group">
+    <button class="add-btn" (click)="addUser()">Add David</button>
+    <button class="remove-btn" (click)="removeFirstUser()">
+      Remove First User
+    </button>
+  </div>
+</div>
